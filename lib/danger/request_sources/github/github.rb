@@ -180,7 +180,7 @@ module Danger
 
         if (previous_violations.empty? && main_violations_sum.empty?) || remove_previous_comments
           # Just remove the comment, if there's nothing to say or --remove-previous-comments CLI was set.
-          delete_old_comments!(danger_id: danger_id) if isFirstDangerRun
+          delete_old_comments!(danger_id: danger_id)
         end
 
         # If there are still violations to show
