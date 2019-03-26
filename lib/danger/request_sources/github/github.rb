@@ -213,7 +213,7 @@ module Danger
         if shouldFailOnWarnings
             status = ((errors.count.zero? && warnings.count.zero?) ? "success" : "failure")
         else
-            status = (errors.count.zero? ? "success" : "failure")
+            status = ((errors.count.zero? && warnings.count.zero?) ? "success" : "failure")
         end
         status = (errors.count.zero? ? "success" : "failure")
         message = generate_description(warnings: warnings, errors: errors)

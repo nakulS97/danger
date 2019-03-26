@@ -264,7 +264,6 @@ module Danger
       # Setup internal state
       init_plugins
       env.fill_environment_vars
-      puts("yoyoyoyoyoyoyyoyoyoyo #{new_comment}")
                                  
       puts(remove_previous_comments)
       begin
