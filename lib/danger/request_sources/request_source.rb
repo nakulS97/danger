@@ -3,7 +3,7 @@ module Danger
     class RequestSource
       DANGER_REPO_NAME = "danger".freeze
 
-      attr_accessor :ci_source, :environment, :scm, :host, :ignored_violations, :shouldFailOnWarnings
+      attr_accessor :ci_source, :environment, :scm, :host, :ignored_violations, :shouldFailOnWarnings, :isFirstDangerRun
 
       def self.env_vars
         raise "Subclass and overwrite self.env_vars"

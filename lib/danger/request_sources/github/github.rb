@@ -180,7 +180,7 @@ module Danger
 
         if (previous_violations.empty? && main_violations_sum.empty?) || remove_previous_comments
           # Just remove the comment, if there's nothing to say or --remove-previous-comments CLI was set.
-          delete_old_comments!(danger_id: danger_id)
+          delete_old_comments!(danger_id: danger_id) if isFirstDangerRun
         end
 
         # If there are still violations to show
@@ -210,12 +210,7 @@ module Danger
       end
 
       def submit_pull_request_status!(warnings: [], errors: [], details_url: [], danger_id: "danger")
-        if shouldFailOnWarnings
-            status = ((errors.count.zero? && warnings.count.zero?) ? "success" : "failure")
-        else
-            status = (errors.count.zero? ? "success" : "failure")
-        end
-        status = ((errors.count.zero? && warnings.count.zero?) ? "success" : "failure")
+        status = (errors.count.zero? ? "success" : "failure")
         message = generate_description(warnings: warnings, errors: errors)
         latest_pr_commit_ref = self.pr_json["head"]["sha"]
 
