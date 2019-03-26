@@ -264,7 +264,8 @@ module Danger
       # Setup internal state
       init_plugins
       env.fill_environment_vars
-
+      puts(new_comment)
+      puts(remove_previous_comments)
       begin
         # Sets up the git environment
         setup_for_running(base_branch, head_branch)
